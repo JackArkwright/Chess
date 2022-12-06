@@ -9,9 +9,14 @@ public class King extends Piece{
 
     // Kings can move in move 1 square in any direction
     public boolean isValidMove(String targetPosition){
-        //take in the new position they want to move into
-        char letter = targetPosition[0].;
         //split the target position and make the letter into an int
+        char letter = targetPosition.toCharArray()[0];
+        int currentAsciiValue = letter;
+        char number = targetPosition.toCharArray()[1];
+        int currentNum = number;
+        //split the target position the same way as the current
+        
+        
         //take the current position of the piece and check whether it is one away from the current position
         //if it is return true
         //else return false
