@@ -8,17 +8,24 @@ public class King extends Piece{
     }
 
     // Kings can move in move 1 square in any direction
-    public boolean isValidMove(String targetPosition){
-        //split the target position and make the letter into an int
-        char letter = targetPosition.toCharArray()[0];
-        int currentAsciiValue = letter;
-        char number = targetPosition.toCharArray()[1];
-        int currentNum = number;
-        //split the target position the same way as the current
-        
-        
-        //take the current position of the piece and check whether it is one away from the current position
-        //if it is return true
-        //else return false
+    public boolean isValidMove(String targetPosition,int row, int column){
+        //convert position to row and column
+        int startRow = ChessUtils.getRowFromPosition(getPosition());
+        int startColumn = ChessUtils.getColumnFromPosition(getPosition());
+        int targetRow = ChessUtils.getRowFromPosition(targetPosition);
+        int targetColumn = ChessUtils.getColumnFromPosition(targetPosition);
+        // can't stand still
+        if (targetRow == startRow && targetColumn == startColumn){
+            return false;
+        }
+        // can't move more than one square in any direction
+        if (Math.abs(startRow - targetRow) > 1){
+            return false;
+        }
+        if (Math.abs(startColumn - targetColumn) > 1){
+            return false;
+        }
+        //otherwise, we cool
+        return true;
     }
 }
