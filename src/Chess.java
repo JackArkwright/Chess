@@ -12,11 +12,19 @@ public class Chess {
             board[6][c] = new Piece (6,c,true);
         }
         board[0][4] = new King("E1",false);
+        board[7][4] = new King("E8",true);
+        board[0][1] = new Knight("B1",false);
+        board[0][6] = new Knight("G1",false);
+        board[7][1] = new Knight("B8",true);
+        board[7][6] = new Knight("G8",true);
     }
 
     //print the current board layout
     public void display(){
+        int[] nums = {1,2,3,4,5,6,7,8};
+        System.out.println("  A B C D E F G H");
         for (int r=0; r<8; r++){
+            System.out.print(nums[r] + " ");
             for (int c=0; c<8; c++){
                 if (board[r][c] != null){
                     System.out.print(board[r][c].getSymbol() + " ");

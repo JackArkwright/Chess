@@ -10,6 +10,8 @@ public class Main {
         game.display();
         game.move();
         game.display();
+        game.move();
+        game.display();
 
     }
 }
