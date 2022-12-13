@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Chess {
@@ -17,6 +18,10 @@ public class Chess {
         board[0][6] = new Knight("G1",false);
         board[7][1] = new Knight("B8",true);
         board[7][6] = new Knight("G8",true);
+        board[0][0] = new Rook("A1",false);
+        board[0][7] = new Rook("H1",false);
+        board[7][0] = new Rook("A8",true);
+        board[7][7] = new Rook("H8",true);
     }
 
     //print the current board layout
@@ -56,6 +61,8 @@ public class Chess {
             validMove = toMove.isValidMove(endPosition);
         }
         if (validMove) {
+
+            ArrayList<String> squares = toMove.passThrough(endPosition)
             System.out.println(toMove.getSymbol() + " moves to " + endPosition);
             int startRow = ChessUtils.getRowFromPosition(startPosition);
             int startColumn = ChessUtils.getColumnFromPosition(startPosition);
