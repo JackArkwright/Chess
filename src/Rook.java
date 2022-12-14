@@ -46,6 +46,7 @@ public class Rook extends Piece{
                 row++;
             } while (row<targetRow);
         }
+        squares.remove(0);
         return squares;
     }
 }

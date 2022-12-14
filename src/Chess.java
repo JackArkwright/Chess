@@ -26,19 +26,21 @@ public class Chess {
 
     //print the current board layout
     public void display(){
-        int[] nums = {1,2,3,4,5,6,7,8};
-        System.out.println("  A B C D E F G H");
+        int[] numbers = {1,2,3,4,5,6,7,8};
+        System.out.println("   A  B  C  D  E  F  G  H");
         for (int r=0; r<8; r++){
-            System.out.print(nums[r] + " ");
-            for (int c=0; c<8; c++){
-                if (board[r][c] != null){
-                    System.out.print(board[r][c].getSymbol() + " ");
+            System.out.print(numbers[r] + "  ");
+            for (int c=0; c<8; c++) {
+                if (board[r][c] != null) {
+                    System.out.print(board[r][c].getSymbol() + "  ");
                 } else {
-                    System.out.print("  "); // blank square
+                    System.out.print("   "); // blank square
                 }
             }
+            System.out.print(numbers[r]);
             System.out.println(); // start a new row
         }
+        System.out.println("   A  B  C  D  E  F  G  H");
     }
 
     //takes chess co-ords e.g. A8 and returns a piece or null
@@ -62,7 +64,7 @@ public class Chess {
         }
         if (validMove) {
 
-            ArrayList<String> squares = toMove.passThrough(endPosition)
+            ArrayList<String> squares = toMove.passesThrough(endPosition);
             System.out.println(toMove.getSymbol() + " moves to " + endPosition);
             int startRow = ChessUtils.getRowFromPosition(startPosition);
             int startColumn = ChessUtils.getColumnFromPosition(startPosition);

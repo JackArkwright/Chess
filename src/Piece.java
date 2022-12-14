@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Piece {
     private int row;
     private int column;
@@ -45,4 +47,9 @@ public class Piece {
         }
         return true;
     }
+
+    public ArrayList<String> passesThrough(String position) {
+        return new ArrayList<>();
+    }
+
 }
