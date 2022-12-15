@@ -22,25 +22,26 @@ public class Chess {
         board[0][7] = new Rook("H1",false);
         board[7][0] = new Rook("A8",true);
         board[7][7] = new Rook("H8",true);
+        board[0][2] = new Bishop("C1",false);
     }
 
     //print the current board layout
     public void display(){
-        int[] numbers = {1,2,3,4,5,6,7,8};
-        System.out.println("   A  B  C  D  E  F  G  H");
+        String[] numbers = {"1","2","3","4","5","6","7","8"};
+        System.out.println(ConsoleColours.CYAN_BOLD + "    A | B | C | D | E | F | G | H" + ConsoleColours.RESET);
         for (int r=0; r<8; r++){
-            System.out.print(numbers[r] + "  ");
+            System.out.print(ConsoleColours.CYAN_BOLD + numbers[r] + ConsoleColours.RESET  + " | ");
             for (int c=0; c<8; c++) {
                 if (board[r][c] != null) {
-                    System.out.print(board[r][c].getSymbol() + "  ");
+                    System.out.print(board[r][c].getSymbol() + " | ");
                 } else {
-                    System.out.print("   "); // blank square
+                    System.out.print("  | "); // blank square
                 }
             }
-            System.out.print(numbers[r]);
+            System.out.print(ConsoleColours.CYAN_BOLD + numbers[r] + ConsoleColours.RESET);
             System.out.println(); // start a new row
         }
-        System.out.println("   A  B  C  D  E  F  G  H");
+        System.out.println(ConsoleColours.CYAN_BOLD + "    A | B | C | D | E | F | G | H" + ConsoleColours.RESET);
     }
 
     //takes chess co-ords e.g. A8 and returns a piece or null
